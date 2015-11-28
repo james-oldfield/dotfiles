@@ -42,4 +42,7 @@ fi;
 complete -W "NSGlobalDomain" defaults;
 
 # NVM
-source $(brew --prefix nvm)/nvm.sh;
+if [ -s ~/.nvm/nvm.sh ]; then
+	NVM_DIR=~/.nvm
+	source ~/.nvm/nvm.sh
+fi

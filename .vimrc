@@ -31,6 +31,9 @@ if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
+" Swap setting" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
 

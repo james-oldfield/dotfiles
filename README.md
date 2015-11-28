@@ -15,3 +15,4 @@ Dotfiles, effectively forked from [here](https://github.com/mathiasbynens/dotfil
 - `./bootstrap.sh` rsyncs repo to `~/`
 - `./brew.sh` CLI tool install script
 - `./npm.sh` install npm packages
+- `./brewcask.sh` install apps using brew cask

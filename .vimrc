@@ -101,11 +101,46 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " Automatic commands
 if has("autocmd")
 	" Enable file type detection
-	filetype on
+	filetype off
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
-set directory=.,$TEMP
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+" PLUGINS
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins go here
+Plugin 'airblade/vim-gitgutter' " Git-diffing inline
+Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy file searching
+Plugin 'tpope/vim-surround' " Surround text with brackets etc
+Plugin 'mxw/vim-jsx' " jsx highlighting
+Plugin 'scrooloose/syntastic' " Syntax highlighter
+
+call vundle#end()
+filetype plugin indent on
+
+" Plugin settings
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components' " Ignores dirs when fuzzy file searching
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+"let g:jsx_ext_required = 0 " Allow JSX in normal JS file

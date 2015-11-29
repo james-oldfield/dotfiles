@@ -9,7 +9,7 @@ alias dt="cd ~/Desktop"
 alias g="git"
 
 alias wp="cd /Applications/MAMP/htdocs"
-alias dev="cd ~/Dev"
+alias d="cd ~/Dev"
 alias web="cd ~/Dev/PROJECTS/jamesoldfield2015"
 alias dotf="cd ~/Dev/dotfiles"
 alias of="cd ~/Dev/openFrameworks/apps/myApps"

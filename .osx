@@ -35,7 +35,7 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Scrolling direction
-defaults write -g com.apple.swipescrolldirection -bool false
+defaults write -g com.apple.swipescrolldirection -bool true
 
 # Set the menu and dock to dark
 defaults write NSGlobalDomain AppleInterfaceStyle Dark

@@ -108,7 +108,14 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
+" OMNICOMPLETETION
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown,xhtml setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
+
+set autoindent
+set cindent
 
 " PLUGINS
 
@@ -125,6 +132,10 @@ Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy file searching
 Plugin 'tpope/vim-surround' " Surround text with brackets etc
 Plugin 'mxw/vim-jsx' " jsx highlighting
 Plugin 'scrooloose/syntastic' " Syntax highlighter
+Plugin 'mattn/emmet-vim' " Emmet!
+Plugin 'Valloric/YouCompleteMe' " Intelligent completion
+Plugin 'jiangmiao/auto-pairs' " bracket closing etc
+Plugin 'ternjs/tern_for_vim' " JS code completion
 
 call vundle#end()
 filetype plugin indent on
@@ -143,4 +154,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
-"let g:jsx_ext_required = 0 " Allow JSX in normal JS file
+let g:jsx_ext_required = 0 " Allow JSX in normal JS file
+
+" Emmet settings
+" Map ctrl + y + , to ,,
+let g:user_emmet_leader_key=','
+" Map ctrl return to normal tag expanding
+imap <C-Return> <CR><CR><C-o>ki<tab>
+imap <C-k> <CR><CR><Esc>ki<tab>

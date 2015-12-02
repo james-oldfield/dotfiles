@@ -41,11 +41,4 @@ fi;
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults;
 
-# NVM
-if [ -s ~/.nvm/nvm.sh ]; then
-	NVM_DIR=~/.nvm
-	source ~/.nvm/nvm.sh
-fi
-
-# RVM
 source ~/.rvm/scripts/rvm

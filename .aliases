@@ -15,6 +15,7 @@ alias dotf="cd ~/Dev/dotfiles"
 alias of="cd ~/Dev/openFrameworks/apps/myApps"
 # open the of project generator
 alias newof="o /Users/jamesoldfield/Dev/openFrameworks/apps/projectGenerator/projectGeneratorSimple/bin/projectGeneratorSimpleDebug.app/"
+alias mr="make && make run"
 
 # wget speed check
 alias wgets="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
@@ -79,4 +80,4 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias brb="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
+alias rl="exec $SHELL -l"

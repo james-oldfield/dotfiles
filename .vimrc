@@ -51,6 +51,8 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
+set shiftwidth=2
+set expandtab
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
@@ -104,18 +106,24 @@ if has("autocmd")
 	filetype off
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  autocmd BufRead,BufNewFile *.md setlocal spell " Turn on spellcheck for markdownfiles
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
-" OMNICOMPLETETION
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown,xhtml setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' " Display line numbers in netrw
 
-set autoindent
-set cindent
+" Split navigation mapping
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Map colon key to semi-colon
+nmap ; :
+" Open new splits in bottom right
+set splitbelow
+set splitright
 
 " PLUGINS
 
@@ -136,25 +144,26 @@ Plugin 'mattn/emmet-vim' " Emmet!
 Plugin 'Valloric/YouCompleteMe' " Intelligent completion
 Plugin 'jiangmiao/auto-pairs' " bracket closing etc
 Plugin 'ternjs/tern_for_vim' " JS code completion
+Plugin 'rdnetto/YCM-Generator' " ycm settings generator
 
 call vundle#end()
 filetype plugin indent on
 
 " Plugin settings
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components' " Ignores dirs when fuzzy file searching
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|bin' " Ignores dirs when fuzzy file searching
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+let g:syntastic_enable_signs=1 " Mark syntax errors with :signs
+let g:syntastic_auto_jump=0 " Do not automatically jump to the error when saving the file
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_javascript_checkers = ['eslint']
 let g:jsx_ext_required = 0 " Allow JSX in normal JS file
+
+" You complete me settings
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_confirm_extra_conf = 0 " Turn off extra confirmations for loding c++ configs
 
 " Emmet settings
 " Map ctrl + y + , to ,,

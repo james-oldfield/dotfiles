@@ -50,9 +50,9 @@ function gitio() {
 # opens the given location
 function s() {
 	if [ $# -eq 0 ]; then
-		sub .;
+    "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" .;
 	else
-		sub "$@";
+    "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "$@";
 	fi;
 }
 
@@ -60,9 +60,9 @@ function s() {
 # given location
 function v() {
 	if [ $# -eq 0 ]; then
-		vim .;
+    /Applications/MacVim.app/Contents/MacOS/Vim .;
 	else
-		vim "$@";
+    /Applications/MacVim.app/Contents/MacOS/Vim "$@";
 	fi;
 }
 

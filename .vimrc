@@ -1,6 +1,8 @@
 set t_Co=256
 set background=dark
 colorscheme badwolf
+" Set the highlight colours for spelling mistakes
+hi SpellBad ctermfg=161
 syntax enable;
 
 " Make Vim more useful
@@ -138,32 +140,46 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter' " Git-diffing inline
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy file searching
 Plugin 'tpope/vim-surround' " Surround text with brackets etc
-Plugin 'mxw/vim-jsx' " jsx highlighting
 Plugin 'scrooloose/syntastic' " Syntax highlighter
 Plugin 'mattn/emmet-vim' " Emmet!
 Plugin 'Valloric/YouCompleteMe' " Intelligent completion
 Plugin 'jiangmiao/auto-pairs' " bracket closing etc
 Plugin 'ternjs/tern_for_vim' " JS code completion
 Plugin 'rdnetto/YCM-Generator' " ycm settings generator
+Plugin 'sophacles/vim-processing' " Processing plugin
+Plugin 'pangloss/vim-javascript'  " Better JS definitions for syntax/indent
+Plugin 'tikhomirov/vim-glsl' " GLSL syntax highlighting definitions
 
 call vundle#end()
 filetype plugin indent on
 
 " Plugin settings
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|bin' " Ignores dirs when fuzzy file searching
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|bin\|addons\|libs' " Ignores dirs when fuzzy file searching
+
+" JS settings
+let g:javascript_enable_domhtmlcss=1
 
 " Syntastic
 let g:syntastic_enable_signs=1 " Mark syntax errors with :signs
 let g:syntastic_auto_jump=0 " Do not automatically jump to the error when saving the file
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d' " Use eslint_d for faster linting
+
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
 let g:jsx_ext_required = 0 " Allow JSX in normal JS file
+set completeopt-=preview " Hide the preview box
 
 " You complete me settings
-let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_confirm_extra_conf = 0 " Turn off extra confirmations for loding c++ configs
+let g:ycm_path_to_python_interpreter = '/usr/bin/python' " Change the interpreter from Anaconda
+let g:ycm_show_diagnostics_ui = 1
 
 " Emmet settings
 " Map ctrl + y + , to ,,

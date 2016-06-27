@@ -39,6 +39,7 @@ brew install homebrew/php/php55 --with-gmp
 brew install ack
 brew install git
 brew install imagemagick --with-webp
+brew install cmake
 brew install nvm
 
 # append nvm path to profile.

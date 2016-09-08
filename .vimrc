@@ -17,6 +17,7 @@ set esckeys
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
 set ttyfast
+set lazyredraw
 " Add the g flag to search/replace by default
 set gdefault
 " Use UTF-8 without BOM
@@ -166,6 +167,7 @@ Plugin 'junegunn/goyo.vim' " Full screen writing
 Plugin 'cakebaker/scss-syntax.vim' " SCSS
 Plugin 'terryma/vim-multiple-cursors' " multiple cursors
 Plugin 'octol/vim-cpp-enhanced-highlight' " c++ 11/14 syntax defintions
+Plugin 'kshenoy/vim-signature' " Visual marks
 
 call vundle#end()
 filetype plugin indent on
@@ -178,6 +180,9 @@ let g:ctrlp_working_path_mode = ''
 " JS settings
 let g:javascript_enable_domhtmlcss=1
 
+" Multiple cursors
+let g:multi_cursor_exit_from_insert_mode=0
+
 " Syntastic
 let g:syntastic_enable_signs=1 " Mark syntax errors with :signs
 let g:syntastic_auto_jump=0 " Do not automatically jump to the error when saving the file
@@ -187,6 +192,8 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d' " Use eslint_d for faster linting
+
+let g:syntastic_scss_checkers = ['scss_lint']
 
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_no_include_search = 0

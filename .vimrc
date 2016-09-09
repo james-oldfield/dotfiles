@@ -152,22 +152,29 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins go here
 Plugin 'airblade/vim-gitgutter' " Git-diffing inline
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy file searching
-Plugin 'scrooloose/syntastic' " Syntax highlighter
-Plugin 'mattn/emmet-vim' " Emmet!
-Plugin 'Valloric/YouCompleteMe' " Intelligent completion
 Plugin 'jiangmiao/auto-pairs' " bracket closing etc
-Plugin 'ternjs/tern_for_vim' " JS code completion
-Plugin 'rdnetto/YCM-Generator' " ycm settings generator
-Plugin 'sophacles/vim-processing' " Processing plugin
-Plugin 'pangloss/vim-javascript'  " Better JS definitions for syntax/indent
-Plugin 'jelera/vim-javascript-syntax' " more syntax
-Plugin 'mxw/vim-jsx' " JSX highlighting
-Plugin 'tikhomirov/vim-glsl' " GLSL syntax highlighting definitions
 Plugin 'junegunn/goyo.vim' " Full screen writing
-Plugin 'cakebaker/scss-syntax.vim' " SCSS
 Plugin 'terryma/vim-multiple-cursors' " multiple cursors
-Plugin 'octol/vim-cpp-enhanced-highlight' " c++ 11/14 syntax defintions
 Plugin 'kshenoy/vim-signature' " Visual marks
+
+Plugin 'ervandew/supertab'
+
+Plugin 'Valloric/YouCompleteMe' " Intelligent completion
+Plugin 'rdnetto/YCM-Generator' " ycm settings generator
+Plugin 'scrooloose/syntastic' " Syntax highlighter
+
+Plugin 'SirVer/ultisnips' " Snippets
+
+Plugin 'octol/vim-cpp-enhanced-highlight' " c++ 11/14 syntax defintions
+Plugin 'sophacles/vim-processing' " Processing plugin
+Plugin 'tikhomirov/vim-glsl' " GLSL syntax highlighting definitions
+
+Plugin 'ternjs/tern_for_vim' " JS code completion
+Plugin 'pangloss/vim-javascript'  " Better JS definitions for syntax/indent
+Plugin 'mxw/vim-jsx' " JSX highlighting
+Plugin 'isRuslan/vim-es6' " better es6 highlighting + snippets
+
+Plugin 'cakebaker/scss-syntax.vim' " SCSS
 
 call vundle#end()
 filetype plugin indent on
@@ -202,7 +209,7 @@ let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler_options = '-std=c++14'
 " let g:syntastic_cpp_include_dirs = ['/Users/james/DEV/openFrameworks/libs/FreeImage/include','/Users/james/DEV/openFrameworks/libs/boost/include','/Users/james/DEV/openFrameworks/libs/boost/include/boost','/Users/james/DEV/openFrameworks/libs/cairo/include','/Users/james/DEV/openFrameworks/libs/cairo/include/cairo','/Users/james/DEV/openFrameworks/libs/fmodex/include','/Users/james/DEV/openFrameworks/libs/freetype/include','/Users/james/DEV/openFrameworks/libs/freetype/include/freetype2','/Users/james/DEV/openFrameworks/libs/freetype/include/freetype2/config','/Users/james/DEV/openFrameworks/libs/freetype/include/freetype2/internal','/Users/james/DEV/openFrameworks/libs/freetype/include/freetype2/internal/services','/Users/james/DEV/openFrameworks/libs/glew/include','/Users/james/DEV/openFrameworks/libs/glew/include/GL','/Users/james/DEV/openFrameworks/libs/glfw/include','/Users/james/DEV/openFrameworks/libs/glfw/include/GLFW','/Users/james/DEV/openFrameworks/libs/glu/include','/Users/james/DEV/openFrameworks/libs/glut/include','/Users/james/DEV/openFrameworks/libs/kiss/include','/Users/james/DEV/openFrameworks/libs/openFrameworks','/Users/james/DEV/openFrameworks/libs/openFrameworks/3d','/Users/james/DEV/openFrameworks/libs/openFrameworks/app','/Users/james/DEV/openFrameworks/libs/openFrameworks/communication','/Users/james/DEV/openFrameworks/libs/openFrameworks/events','/Users/james/DEV/openFrameworks/libs/openFrameworks/gl','/Users/james/DEV/openFrameworks/libs/openFrameworks/graphics','/Users/james/DEV/openFrameworks/libs/openFrameworks/math','/Users/james/DEV/openFrameworks/libs/openFrameworks/sound','/Users/james/DEV/openFrameworks/libs/openFrameworks/types','/Users/james/DEV/openFrameworks/libs/openFrameworks/utils','/Users/james/DEV/openFrameworks/libs/openFrameworks/video','/Users/james/DEV/openFrameworks/libs/openssl/include','/Users/james/DEV/openFrameworks/libs/openssl/include/openssl','/Users/james/DEV/openFrameworks/libs/poco/include','/Users/james/DEV/openFrameworks/libs/rtAudio/include','/Users/james/DEV/openFrameworks/libs/tess2/include','/Users/james/DEV/openFrameworks/libs/utf8cpp/include','/Users/james/DEV/openFrameworks/libs/utf8cpp/include/utf8']
 
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['javascript'], 'passive_filetypes': ['cpp'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['javascript', 'scss'], 'passive_filetypes': ['cpp'] }
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS file
 set completeopt-=preview " Hide the preview box
@@ -214,9 +221,14 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python' " Change the interprete
 let g:ycm_show_diagnostics_ui = 1
 let g:ycm_enable_diagnostic_signs = 1
 
-" Emmet settings
-" Map ctrl + y + , to ,,
-let g:user_emmet_leader_key=','
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " Map ctrl return to normal tag expanding
 imap <C-Return> <CR><CR><C-o>ki<tab>
 imap <C-k> <CR><CR><Esc>ki<tab>

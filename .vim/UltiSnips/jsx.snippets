@@ -1,0 +1,94 @@
+global !p
+from snippet_helpers import *
+endglobal
+
+snippet cc "createClass" b
+export default class ${1:`!p snip.rv = path_to_component_name(path,
+pascal_case_basename)`} extends React.Component {
+	render() {
+		return (
+			$0
+		);
+	}
+}
+endsnippet
+
+snippet con "constructor()" b
+constructor(props) {
+	super(props);
+	$0
+}
+endsnippet
+
+snippet cdm "componentDidMount" b
+componentDidMount() {
+	$0
+}
+endsnippet
+
+snippet cdu "componentDidUpdate" b
+componentDidUpdate(prevProps, prevState) {
+	$0
+}
+endsnippet
+
+snippet cwm "componentWillMount" b
+componentWillMount() {
+	$0
+}
+endsnippet
+
+snippet cwrp "componentWillReceiveProps" b
+componentWillReceiveProps(nextProps) {
+	$0
+}
+endsnippet
+
+snippet cwum "componentWillUnmount" b
+componentWillUnmount() {
+	$0
+}
+endsnippet
+
+snippet cwu "componentWillUpdate" b
+componentWillUpdate(nextProps, nextState) {
+	$0
+}
+endsnippet
+
+snippet Pt "PropTypes" w
+PropTypes.$1`!p snip.rv=complete(t[1], ['array', 'bool', 'func', 'number', 'object', 'string', 'node', 'element', 'instanceOf', 'oneOf([])', 'oneOfType([])', 'arrayOf()', 'objectOf()', 'shape({})', 'any'])`,$0
+endsnippet
+
+snippet scu "shouldComponentUpdate" b
+shouldComponentUpdate(nextProps, nextState) {
+	return ${1:true};
+}
+endsnippet
+
+snippet <> "<Component>" b
+<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}>
+	${0:${VISUAL}}
+</$1>
+endsnippet
+
+snippet < "<Component />" b
+<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`} ${0}/>
+endsnippet
+
+# DOM
+
+snippet div "<div>" b
+<div$1>
+	${0:${VISUAL}}
+</div>
+endsnippet
+
+# Diffux-CI
+snippet dd "diffux.define" b
+diffux.define('${1:<`!p snip.rv = path_to_component_name(path, pascal_case_basename)`>}', function() {
+	return Utils.renderAttachedAndGetNode(
+		${0:${VISUAL}}
+	);
+}, { viewports: [${2:'small', 'medium'}] });
+endsnippet

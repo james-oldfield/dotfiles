@@ -77,21 +77,17 @@ shouldComponentUpdate(nextProps, nextState) {
 endsnippet
 
 snippet <> "<Component>" b
-<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}>
-	${0:${VISUAL}}
-</$1>
+<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`} className=""></$1>
 endsnippet
 
 snippet < "<Component />" b
-<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`} ${0}/>
+<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`} ${0} className="" />
 endsnippet
 
 # DOM
 
 snippet div "<div>" b
-<div$1>
-	${0:${VISUAL}}
-</div>
+<div className="${0}"></div>
 endsnippet
 
 # Diffux-CI

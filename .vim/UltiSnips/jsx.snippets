@@ -13,6 +13,17 @@ pascal_case_basename)`} extends React.Component {
 }
 endsnippet
 
+snippet sfc "functional component" b
+const ${1:`!p snip.rv = path_to_component_name(path,
+pascal_case_basename)`} = () => {
+	<div className="${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}${0}"></div>;
+}
+endsnippet
+
+snippet cn "className" b
+className="${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}${0}"
+endsnippet
+
 snippet con "constructor()" b
 constructor(props) {
 	super(props);

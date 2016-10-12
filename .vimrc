@@ -107,16 +107,6 @@ endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-
 " Automatic commands
 if has("autocmd")
 	" Treat .json files as .js
@@ -144,24 +134,24 @@ set ft=scss.css
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter' " Git-diffing inline
+Plug 'w0rp/ale'
+
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-Plug 'terryma/vim-multiple-cursors' " multiple cursors
 
-Plug 'ervandew/supertab', { 'on': [] }
-Plug 'SirVer/ultisnips', { 'on': []  }
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'sheerun/vim-polyglot'
-
 Plug 'rdnetto/YCM-Generator', { 'for': 'cpp' }
 
-Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
 
 augroup load_insert_plugs
   autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe', 'supertab')
+  autocmd InsertEnter * call plug#load('YouCompleteMe')
     \| autocmd! load_insert_plugs
 augroup END
 
@@ -179,8 +169,6 @@ let g:ale_sign_column_always = 1
 
 " Multiple cursors
 let g:multi_cursor_exit_from_insert_mode=0
-
-let g:syntastic_scss_checkers = ['scss_lint']
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS file
 set completeopt-=preview " Hide the preview box

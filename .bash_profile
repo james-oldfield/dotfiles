@@ -42,3 +42,4 @@ fi;
 complete -W "NSGlobalDomain" defaults;
 
 source ~/.rvm/scripts/rvm
+source ~/.fzf.bash

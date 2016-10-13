@@ -60,7 +60,7 @@ function s() {
 # given location
 function v() {
 	if [ $# -eq 0 ]; then
-    /Applications/MacVim.app/Contents/MacOS/Vim .;
+    /Applications/MacVim.app/Contents/MacOS/Vim "$(fzf)";
 	else
     /Applications/MacVim.app/Contents/MacOS/Vim "$@";
 	fi;

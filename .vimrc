@@ -167,6 +167,10 @@ let g:javascript_enable_domhtmlcss=1
 
 let g:ale_sign_column_always = 1
 
+let g:ale_linters = {
+\   'scss': ['scss-lint'],
+\}
+
 " Multiple cursors
 let g:multi_cursor_exit_from_insert_mode=0
 

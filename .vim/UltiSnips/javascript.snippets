@@ -107,10 +107,6 @@ endsnippet
 
 # Misc
 
-snippet fl "flow" b
-/* @flow */
-endsnippet
-
 snippet cons "console.log(...)" b
 console.log(${1:${VISUAL}});${0}
 endsnippet
@@ -134,10 +130,18 @@ snip.rv = formatVariableName(t[1])
 ` = require('${1}');$0
 endsnippet
 
-snippet me "module.exports" b
-module.exports = ${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`};$0
-endsnippet
-
 snippet ed "export default" b
 export default ${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}$0
+endsnippet
+
+snippet im
+import ${1:foo} from '${2:bar}'
+endsnippet
+
+snippet ex
+export ${1:default} ${2:bar}
+endsnippet
+
+snippet => "Arrow function" i
+(${1}) => ${2}
 endsnippet

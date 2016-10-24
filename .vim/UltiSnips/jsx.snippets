@@ -89,16 +89,6 @@ endsnippet
 snippet div "<div>" b
 <div className="${0}"></div>
 endsnippet
-
-# Diffux-CI
-snippet dd "diffux.define" b
-diffux.define('${1:<`!p snip.rv = path_to_component_name(path, pascal_case_basename)`>}', function() {
-	return Utils.renderAttachedAndGetNode(
-		${0:${VISUAL}}
-	);
-}, { viewports: [${2:'small', 'medium'}] });
-endsnippet
-
 snippet lorem "lorem ipsum" w
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim sit amet justo at faucibus. Vestibulum pellentesque sit amet metus quis suscipit. Ut eu rutrum sem, vitae tempus tortor. Cras finibus mollis lorem in posuere. Nunc tincidunt, eros nec feugiat porttitor, ex tellus iaculis velit, ut efficitur erat magna non nisl. Nam ante dui, vulputate at vestibulum auctor, aliquam ac dui. Morbi nibh nunc, sodales id sagittis eu, semper quis tortor.
 endsnippet

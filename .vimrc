@@ -1,6 +1,10 @@
 set t_Co=256
+
+" COLOURS
 set background=dark
+let g:badwolf_css_props_highlight = 1
 colorscheme badwolf
+
 " Set the highlight colours for spelling mistakes
 hi SpellBad ctermfg=161
 syntax enable;

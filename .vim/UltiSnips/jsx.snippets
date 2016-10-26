@@ -77,18 +77,30 @@ shouldComponentUpdate(nextProps, nextState) {
 endsnippet
 
 snippet <> "<Component>" b
+<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}></$1>
+endsnippet
+
+snippet <>. "<Component>" b
 <${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`} className=""></$1>
 endsnippet
 
 snippet < "<Component />" b
-<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}${0} className="" />
+<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`}${0} />
+endsnippet
+
+snippet <. "<Component />" b
+<${1:`!p snip.rv = path_to_component_name(path, pascal_case_basename)`} className="${0}" />
 endsnippet
 
 # DOM
-
 snippet div "<div>" b
-<div className="${0}"></div>
+<div>${0}</div>
 endsnippet
+
+snippet d. "<div>" b
+<div className="${1}">${0}</div>
+endsnippet
+
 snippet lorem "lorem ipsum" w
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim sit amet justo at faucibus. Vestibulum pellentesque sit amet metus quis suscipit. Ut eu rutrum sem, vitae tempus tortor. Cras finibus mollis lorem in posuere. Nunc tincidunt, eros nec feugiat porttitor, ex tellus iaculis velit, ut efficitur erat magna non nisl. Nam ante dui, vulputate at vestibulum auctor, aliquam ac dui. Morbi nibh nunc, sodales id sagittis eu, semper quis tortor.
 endsnippet

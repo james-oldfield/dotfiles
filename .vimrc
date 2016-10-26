@@ -146,6 +146,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
+
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'on': [] }

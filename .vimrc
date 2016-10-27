@@ -143,7 +143,7 @@ Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
@@ -154,6 +154,7 @@ Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'rdnetto/YCM-Generator', { 'for': 'cpp' }
 
 Plug 'sheerun/vim-polyglot'
+Plug 'James-Oldfield/badwolf'
 
 augroup load_insert_plugs
   autocmd!

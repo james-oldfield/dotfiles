@@ -4,15 +4,15 @@ function mkd() {
 
 # Create a new Jekyll blog post
 function blogpost() {
-  today=$(date +%Y-%m-%d);
-  touch $today-$@".md"
+	today=$(date +%Y-%m-%d);
+	touch $today-$@".md"
 }
 
 # Set up a new processing sketch, init git with a .gitignore
 function newproc() {
 	mkdir -p "$@" && cd "$_" && touch "$@".pde;
-  git init;
-  echo "/build-tmp" > .gitignore;
+	git init;
+	echo "/build-tmp" > .gitignore;
 }
 
 # Determine size of a file or total size of a directory
@@ -37,32 +37,13 @@ if [ $? -eq 0 ]; then
 	}
 fi;
 
-# Create a git.io short URL
-function gitio() {
-	if [ -z "${1}" -o -z "${2}" ]; then
-		echo "Usage: \`gitio slug url\`";
-		return 1;
-	fi;
-	curl -i http://git.io/ -F "url=${2}" -F "code=${1}";
-}
-
-# `s` with no arguments opens the current directory in Sublime Text, otherwise
-# opens the given location
-function s() {
-	if [ $# -eq 0 ]; then
-    "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" .;
-	else
-    "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "$@";
-	fi;
-}
-
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
 function v() {
 	if [ $# -eq 0 ]; then
-    /Applications/MacVim.app/Contents/MacOS/Vim "$(fzf)";
+		/Applications/MacVim.app/Contents/MacOS/Vim "$(fzf)";
 	else
-    /Applications/MacVim.app/Contents/MacOS/Vim "$@";
+		/Applications/MacVim.app/Contents/MacOS/Vim "$@";
 	fi;
 }
 
@@ -74,4 +55,14 @@ function o() {
 	else
 		open "$@";
 	fi;
+}
+
+# Fzf search bash history + executes.
+function fh() {
+	eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+# Fzf search with AG
+function fa() {
+	ag --nobreak --nonumbers --noheading . | fzf
 }

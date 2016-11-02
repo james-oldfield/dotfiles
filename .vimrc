@@ -9,6 +9,12 @@ colorscheme badwolf
 hi SpellBad ctermfg=161
 syntax enable;
 
+" Set folds to auto, but auto-open
+set foldmethod=indent
+set nofoldenable
+
+set guifont=Inconsolta:h14
+
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)

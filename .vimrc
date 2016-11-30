@@ -150,28 +150,25 @@ call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-
-Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'rdnetto/YCM-Generator', { 'for': 'cpp' }
+
+Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }
+Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 
 Plug 'sheerun/vim-polyglot'
 Plug 'James-Oldfield/badwolf'
 
-augroup load_insert_plugs
-  autocmd!
-  autocmd InsertEnter * call plug#load('YouCompleteMe')
-    \| autocmd! load_insert_plugs
-augroup END
-
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " Plugin settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|addons\|libs' " Ignores dirs when fuzzy file searching
@@ -184,7 +181,7 @@ let g:javascript_enable_domhtmlcss=1
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
-\   'scss': ['scss-lint'],
+\   'cpp': ['cppcheck'],
 \}
 
 " Multiple cursors
@@ -192,18 +189,3 @@ let g:multi_cursor_exit_from_insert_mode=0
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS file
 set completeopt-=preview " Hide the preview box
-
-" You complete me settings
-let g:ycm_confirm_extra_conf = 0 " Turn off extra confirmations for loding c++ configs
-let g:ycm_path_to_python_interpreter = '/usr/bin/python' " Change the interpreter from Anaconda
-let g:ycm_show_diagnostics_ui = 1
-let g:ycm_enable_diagnostic_signs = 1
-
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:SuperTabCrMapping = 0
-
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"

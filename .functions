@@ -41,9 +41,9 @@ fi;
 # given location
 function v() {
 	if [ $# -eq 0 ]; then
-		/Applications/MacVim.app/Contents/MacOS/Vim "$(fzf)";
+		nvim "$(fzf)";
 	else
-		/Applications/MacVim.app/Contents/MacOS/Vim "$@";
+		nvim "$@";
 	fi;
 }
 

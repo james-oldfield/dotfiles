@@ -155,6 +155,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-commentary'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
 Plug 'SirVer/ultisnips'
@@ -162,6 +163,7 @@ Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }
 Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 Plug 'sheerun/vim-polyglot'
 Plug 'James-Oldfield/badwolf'

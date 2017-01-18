@@ -66,6 +66,8 @@ nnoremap <C-H> <C-W><C-H>
 " Map space to fold toggle
 nnoremap <space> za
 
+tnoremap <Esc> <C-\><C-n>
+
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
 
@@ -135,7 +137,6 @@ let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' " Display line numbers 
 autocmd Filetype markdown setlocal wrap
 autocmd Filetype markdown setlocal linebreak
 autocmd Filetype markdown setlocal nolist
-autocmd Filetype markdown setlocal columns=80
 
 " Open new splits in bottom right
 set splitbelow
@@ -164,6 +165,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }
 Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'vimwiki/vimwiki'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'James-Oldfield/badwolf'
@@ -171,6 +173,11 @@ Plug 'James-Oldfield/badwolf'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
+
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Plugin settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|addons\|libs' " Ignores dirs when fuzzy file searching
@@ -184,6 +191,7 @@ let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
 \   'cpp': ['cppcheck'],
+\   'python': ['flake8'],
 \}
 
 " Multiple cursors

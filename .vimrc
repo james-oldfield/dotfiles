@@ -157,7 +157,11 @@ Plug 'terryma/vim-multiple-cursors'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
+Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+
+Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
+Plug 'neovim/node-host', { 'for': 'clojure' }
 
 Plug 'SirVer/ultisnips'
 
@@ -168,7 +172,6 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'vimwiki/vimwiki'
 
 Plug 'sheerun/vim-polyglot'
-Plug 'James-Oldfield/badwolf'
 
 call plug#end()
 
@@ -190,6 +193,8 @@ let g:javascript_enable_domhtmlcss=1
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
+\   'SCSS': ['scss-lint'],
+\   'css': ['scss-lint'],
 \   'cpp': ['cppcheck'],
 \   'python': ['flake8'],
 \}

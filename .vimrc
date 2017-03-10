@@ -148,30 +148,29 @@ set ft=scss.css
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0rp/ale'
-
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-Plug 'terryma/vim-multiple-cursors'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
-Plug 'plasticboy/vim-markdown'
+Plug 'vimwiki/vimwiki'
+Plug 'sheerun/vim-polyglot'
+Plug 'SirVer/ultisnips'
+Plug 'w0rp/ale'
+
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
 Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
 Plug 'neovim/node-host', { 'for': 'clojure' }
-
-Plug 'SirVer/ultisnips'
+Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }
 Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'vimwiki/vimwiki'
-
-Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 

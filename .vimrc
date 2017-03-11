@@ -6,6 +6,7 @@ hi SpellBad ctermfg=161
 syntax on
 
 set foldmethod=indent
+set nofoldenable
 set guifont=Inconsolta:h14
 
 set nocompatible

@@ -105,7 +105,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
 Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
@@ -123,9 +122,8 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 
+let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-
-let g:vim_markdown_folding_style_pythonic = 1
 
 let g:badwolf_css_props_highlight = 1
 

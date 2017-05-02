@@ -106,6 +106,7 @@ Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
 
 Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
 Plug 'neovim/node-host', { 'for': 'clojure' }

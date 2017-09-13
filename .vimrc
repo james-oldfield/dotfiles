@@ -7,7 +7,6 @@ syntax on
 
 set foldmethod=indent
 set nofoldenable
-set guifont=Inconsolta:h14
 
 set nocompatible
 set clipboard=unnamed
@@ -61,11 +60,6 @@ set splitright
 
 set omnifunc=csscomplete#CompleteCSS
 set ft=scss.css
-
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
 
 let mapleader=","
 

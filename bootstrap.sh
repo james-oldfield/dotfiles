@@ -7,7 +7,6 @@ git pull origin master;
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "brew.sh" --exclude "bootstrap.sh" \
 		--exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude "npm.sh" --exclude "brewcask.sh" -avh --no-perms . ~;
-	rsync ~/.vim/plugged/badwolf/colors/badwolf.vim ~/.vim/colors/badwolf.vim
 	source ~/.bash_profile;
 }
 

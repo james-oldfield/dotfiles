@@ -11,7 +11,6 @@ set nofoldenable
 set nocompatible
 set clipboard=unnamed
 set wildmenu
-set esckeys
 set backspace=indent,eol,start
 set ttyfast
 set lazyredraw
@@ -98,6 +97,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
+Plug 'styled-components/vim-styled-components'
 
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
@@ -110,6 +110,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }
 Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 
 call plug#end()
 
@@ -134,8 +136,13 @@ let g:ale_linters = {
 \   'css': ['scss-lint'],
 \   'cpp': ['cppcheck'],
 \   'python': ['flake8'],
+\   'tex': ['chktex', 'proselint'],
 \}
 
 let g:multi_cursor_exit_from_insert_mode=0
 
 let g:jsx_ext_required = 0
+
+let g:neotex_enabled=2
+let g:neotex_delay=0
+let g:neotex_latexdiff=1

@@ -104,7 +104,7 @@ Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
 
 Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
 Plug 'neovim/node-host', { 'for': 'clojure' }
-Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
+Plug 'luochen1990/rainbow'
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }

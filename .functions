@@ -2,19 +2,6 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
-# Create a new Jekyll blog post
-function blogpost() {
-	today=$(date +%Y-%m-%d);
-	touch $today-$@".md"
-}
-
-# Set up a new processing sketch, init git with a .gitignore
-function newproc() {
-	mkdir -p "$@" && cd "$_" && touch "$@".pde;
-	git init;
-	echo "/build-tmp" > .gitignore;
-}
-
 # Determine size of a file or total size of a directory
 function fs() {
 	if du -b /dev/null > /dev/null 2>&1; then

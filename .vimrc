@@ -100,8 +100,8 @@ Plug 'styled-components/vim-styled-components', { 'for': 'javascript' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
 
-Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
-Plug 'neovim/node-host', { 'for': 'clojure' }
+" Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
+" Plug 'neovim/node-host', { 'for': 'clojure' }
 Plug 'luochen1990/rainbow'
 
 Plug 'Shougo/deoplete.nvim'
@@ -144,3 +144,5 @@ let g:jsx_ext_required = 0
 let g:neotex_enabled=2
 let g:neotex_delay=0
 let g:neotex_latexdiff=1
+
+let g:rainbow_active = 1

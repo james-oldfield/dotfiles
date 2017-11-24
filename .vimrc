@@ -87,17 +87,15 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'for': 'javascript' }
 
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
@@ -107,7 +105,7 @@ Plug 'neovim/node-host', { 'for': 'clojure' }
 Plug 'luochen1990/rainbow'
 
 Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 

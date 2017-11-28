@@ -83,6 +83,16 @@ if has("autocmd")
   autocmd Filetype markdown setlocal nolist
 endif
 
+" kudos https://tex.stackexchange.com/posts/590/revisions
+function! WC()
+  let filename = expand("%")
+  let cmd = "detex " . filename . " | wc -w | tr -d [:space:]"
+  let result = system(cmd)
+  echo result . " words"
+endfunction
+
+command WC call WC()
+
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
@@ -97,7 +107,7 @@ Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'styled-components/vim-styled-components', { 'for': 'javascript' }
 
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'tex'] }
 Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
 
 " Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }

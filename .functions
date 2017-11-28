@@ -1,3 +1,7 @@
+function vw() {
+	v ~/Dropbox/vimwiki/Index.md;
+}
+
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }

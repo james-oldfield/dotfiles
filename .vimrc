@@ -75,7 +75,7 @@ tnoremap <Esc> <C-\><C-n>
 
 if has("autocmd")
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-  autocmd BufRead,BufNewFile *.md setlocal spell
+  autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
   autocmd Filetype markdown setlocal wrap

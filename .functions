@@ -2,6 +2,10 @@ function vw() {
 	v ~/Dropbox/vimwiki/Index.md;
 }
 
+function vw() {
+	v ~/Dropbox/vimwiki/Index.md;
+}
+
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
@@ -35,6 +39,15 @@ function v() {
 		nvim "$(fzf)";
 	else
 		nvim "$@";
+	fi;
+}
+
+# open vim without vimrc
+function vn() {
+	if [ $# -eq 0 ]; then
+		nvim -u NONE "$(fzf)";
+	else
+		nvim -u NONE "$@";
 	fi;
 }
 

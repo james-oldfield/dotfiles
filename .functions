@@ -1,9 +1,13 @@
+# open vimwiki
 function vw() {
 	v ~/Dropbox/vimwiki/Index.md;
 }
 
-function vw() {
-	v ~/Dropbox/vimwiki/Index.md;
+# start datascience virtual env
+function ds() {
+	eval "$(pyenv virtualenv-init -)"
+	eval "$(pyenv init -)"
+	pyenv activate data-science
 }
 
 function mkd() {

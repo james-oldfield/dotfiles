@@ -153,12 +153,10 @@ let g:ale_linters = {
 \   'tex': ['chktex', 'proselint'],
 \}
 
-let g:multi_cursor_exit_from_insert_mode=0
-
 let g:jsx_ext_required = 0
 
 let g:neotex_enabled=2
 let g:neotex_delay=0
 let g:neotex_latexdiff=0
 
-let g:rainbow_active = 1
+let g:rainbow_active=0

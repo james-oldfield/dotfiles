@@ -71,7 +71,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 nnoremap <space> za
-tnoremap <Esc> <C-\><C-n>
+
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
 
 if has("autocmd")
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript

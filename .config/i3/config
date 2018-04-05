@@ -133,7 +133,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks
+        font pango:Fira Mono, FontAwesome 11
+        separator_symbol "|"
 }
 
 # media keys, etc.
@@ -155,3 +157,4 @@ exec_always feh --bg-scale /home/james/Pictures/1a1a1a_background.jpg
 # auto-open apps
 exec --no-startup-id redshift-gtk
 exec --no-startup-id exec /home/james/.dropbox-dist/dropboxd
+exec --no-startup-id blueman-applet

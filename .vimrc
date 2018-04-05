@@ -128,8 +128,8 @@ Plug 'lervag/vimtex'
 call plug#end()
 
 " System-dependent interp. paths
-let g:python_host_prog = '/Users/james/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/james/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = '/home/james/miniconda3/envs/py27/bin/python'
+let g:python3_host_prog = '/home/james/miniconda3/bin/python'
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'

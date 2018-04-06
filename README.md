@@ -1,10 +1,9 @@
-# dotfiles
+# dotfiles (debian, i3)
 Dotfiles, effectively forked from [here](https://github.com/mathiasbynens/dotfiles)
 
 ### contents
 - `.aliases` + `functions` a collection of useful, personal aliases and functions.
 - `.inputrc` line editing settings and keybindings.
-- `.osx` default osx scaffold.
 - `.vim*` vim files and config.
 - `.git*` git config including aliases.
 - `.init/*` default settings including sublime user preferences.
@@ -13,6 +12,3 @@ Dotfiles, effectively forked from [here](https://github.com/mathiasbynens/dotfil
 
 ### installing
 - `./bootstrap.sh` rsyncs repo to `~/`
-- `./brew.sh` CLI tool install script
-- `./npm.sh` install npm packages
-- `./brewcask.sh` install apps using brew cask

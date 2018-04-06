@@ -88,8 +88,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec i3-msg exit
-# lock screen
-bindsym $mod+Shift+l exec i3lock --color=ff6347
+# lock screen (brb)
+bindsym $mod+Shift+b exec i3lock --color=ff6347
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

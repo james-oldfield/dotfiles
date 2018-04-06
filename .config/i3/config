@@ -158,7 +158,3 @@ exec_always feh --bg-scale /home/james/Pictures/1a1a1a_background.jpg
 exec --no-startup-id redshift-gtk
 exec --no-startup-id exec /home/james/.dropbox-dist/dropboxd
 exec --no-startup-id blueman-applet
-
-# key repeat speeds, etc.
-exec --no-startup-id xset r rate 225 100
-exec --no-startup-id setxkbmap -option caps:escape

@@ -1,3 +1,6 @@
+# vim
+vloc="/home/james/AppImages/nvim.appimage"
+
 # open vimwiki
 function vw() {
 	v ~/Dropbox/vimwiki/Index.md;
@@ -40,18 +43,18 @@ fi;
 # given location
 function v() {
 	if [ $# -eq 0 ]; then
-		nvim "$(fzf)";
+		vloc "$(fzf)";
 	else
-		nvim "$@";
+		vloc "$@";
 	fi;
 }
 
 # open vim without vimrc
 function vn() {
 	if [ $# -eq 0 ]; then
-		nvim -u NONE "$(fzf)";
+		vloc -u NONE "$(fzf)";
 	else
-		nvim -u NONE "$@";
+		vloc -u NONE "$@";
 	fi;
 }
 

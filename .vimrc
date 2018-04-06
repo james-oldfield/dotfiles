@@ -123,7 +123,6 @@ Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -138,7 +137,6 @@ let g:deoplete#sources#clang#clang_header = '/Applications/Xcode.app/Contents/De
 if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
 endif
-let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
 let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]

@@ -100,8 +100,8 @@ command WC call WC()
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'vimwiki/vimwiki'

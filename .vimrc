@@ -99,16 +99,16 @@ command WC call WC()
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
-Plug 'styled-components/vim-styled-components', { 'for': 'javascript' }
 
 Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'tex'] }
 Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
@@ -117,7 +117,10 @@ Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
 " Plug 'neovim/node-host', { 'for': 'clojure' }
 Plug 'luochen1990/rainbow'
 
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }

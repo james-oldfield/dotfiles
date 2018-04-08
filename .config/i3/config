@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Noto Sans, FontAwesome 12
+font pango:Noto Sans, FontAwesome 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -94,22 +94,30 @@ bindsym $mod+Shift+b exec i3lock --color=ff6347
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command SCRIPT_DIR=~/blocklets i3blocks
-        separator_symbol "|"
+  status_command SCRIPT_DIR=~/blocklets i3blocks
+  separator_symbol "|"
+
+  colors {
+    background #1a1a1a
+    statusline #ffffff
+    separator #666666
+    focused_workspace  #333333 #ff6347 #ffffff
+  }
 }
 
+client.focused #cccccc #cccccc #cccccc #cccccc
 
 # hide title bar
 for_window [class="^.*"] border pixel 1

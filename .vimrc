@@ -126,6 +126,9 @@ Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 Plug 'donRaphaco/neotex', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
+
 
 call plug#end()
 
@@ -159,8 +162,9 @@ let g:ale_linters = {
 
 let g:jsx_ext_required = 0
 
-let g:neotex_enabled=2
+let g:neotex_enabled=1
 let g:neotex_delay=0
 let g:neotex_latexdiff=0
 
 let g:rainbow_active=0
+let g:polyglot_disabled = ['latex']

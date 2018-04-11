@@ -43,6 +43,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# screenshots
+bindsym $mod+Print exec shutter -s
+
 # -------------------
 # WORKSPACES
 # -------------------

@@ -49,11 +49,11 @@ bindsym $mod+Print exec shutter -s
 # -------------------
 # WORKSPACES
 # -------------------
-set $internet = ""
-set $dev = ""
-set $music = ""
-set $mail = ""
-set $misc = ""
+set $internet 1:
+set $dev 2:
+set $music 3:
+set $mail 4:
+set $misc 5:
 
 bindsym $mod+1 workspace $internet
 bindsym $mod+2 workspace $dev
@@ -93,7 +93,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec i3-msg exit
 # lock screen (brb)
-bindsym $mod+Shift+b exec i3lock --color=ff6347
+bindsym $mod+Shift+b exec ~/.scripts/lock
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -109,6 +109,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
+  strip_workspace_numbers yes
   status_command SCRIPT_DIR=~/blocklets i3blocks
   separator_symbol "|"
 
@@ -141,6 +142,6 @@ exec_always feh --bg-scale /home/james/Pictures/1a1a1a_background.jpg
 # auto-open apps
 exec --no-startup-id redshift-gtk
 exec --no-startup-id exec /home/james/.dropbox-dist/dropboxd
-exec --no-startup-id blueman-applet
+exec --no-startup-id exec /opt/toggldesktop/TogglDesktop.sh
 exec --no-startup-id xset r rate 225 100
 exec --no-startup-id xsettingsd

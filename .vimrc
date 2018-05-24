@@ -9,7 +9,7 @@ set foldmethod=indent
 set nofoldenable
 
 set nocompatible
-set clipboard=unnamed
+set clipboard=unnamedplus
 set wildmenu
 set backspace=indent,eol,start
 set ttyfast

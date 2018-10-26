@@ -1,3 +1,7 @@
+gaps inner 15
+gaps outer 15
+for_window [class="^.*"] border pixel 2
+
 set $mod Mod4
 
 font pango:Noto Sans, FontAwesome 14
@@ -35,13 +39,17 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+bindsym $mod+greater exec "sp next"
+bindsym $mod+less exec "sp prev"
+bindsym $mod+slash exec "sp play"
 
 # screenshots
 bindsym $mod+Print exec shutter -s
@@ -95,7 +103,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec i3-msg exit
 # lock screen (brb)
-bindsym $mod+Shift+b exec ~/.scripts/lock
+bindsym $mod+Shift+b exec i3lock -c ff6347
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -135,15 +143,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% &&
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # desktop, etc.
-exec_always feh --bg-scale /home/james/Pictures/1a1a1a_background.jpg
+exec xsetroot -solid "#1a1a1a"
 
 # auto-open apps
 exec --no-startup-id redshift-gtk
 exec --no-startup-id exec /home/james/.dropbox-dist/dropboxd
-exec --no-startup-id exec /opt/toggldesktop/TogglDesktop.sh
 exec --no-startup-id xset r rate 225 100
 exec --no-startup-id xsettingsd
+exec --no-startup-id nm-applet

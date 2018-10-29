@@ -119,6 +119,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
+  position top
   strip_workspace_numbers yes
   status_command SCRIPT_DIR=~/blocklets i3blocks
   separator_symbol "|"
@@ -127,7 +128,7 @@ bar {
     background #1a1a1a
     statusline #ffffff
     separator #666666
-    focused_workspace  #333333 #ff6347 #ffffff
+    focused_workspace  #333333 #ffffff #1a1a1a
   }
 }
 

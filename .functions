@@ -6,6 +6,11 @@ function vw() {
 	v ~/Dropbox/vimwiki/Index.md;
 }
 
+# open latex scratchpad
+function vl() {
+	v ~/Dropbox/vimwiki/latex.md;
+}
+
 # start datascience virtual env
 function ds() {
 	eval "$(pyenv virtualenv-init -)"

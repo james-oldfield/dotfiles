@@ -32,6 +32,7 @@ set exrc
 set secure
 set number
 set cursorline
+set relativenumber
 
 set tabstop=2
 set shiftwidth=2

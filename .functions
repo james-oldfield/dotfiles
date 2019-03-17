@@ -1,18 +1,25 @@
+# vim
+nvim=/home/james/AppImages/nvim.appimage
+
+# open vimwiki
+function vw() {
+	v ~/Dropbox/vimwiki/Index.md;
+}
+
+# open latex scratchpad
+function vl() {
+	v ~/Dropbox/vimwiki/latex.md;
+}
+
+# start datascience virtual env
+function ds() {
+	eval "$(pyenv virtualenv-init -)"
+	eval "$(pyenv init -)"
+	pyenv activate data-science
+}
+
 function mkd() {
 	mkdir -p "$@" && cd "$_";
-}
-
-# Create a new Jekyll blog post
-function blogpost() {
-	today=$(date +%Y-%m-%d);
-	touch $today-$@".md"
-}
-
-# Set up a new processing sketch, init git with a .gitignore
-function newproc() {
-	mkdir -p "$@" && cd "$_" && touch "$@".pde;
-	git init;
-	echo "/build-tmp" > .gitignore;
 }
 
 # Determine size of a file or total size of a directory
@@ -41,9 +48,18 @@ fi;
 # given location
 function v() {
 	if [ $# -eq 0 ]; then
-		/Applications/MacVim.app/Contents/MacOS/Vim "$(fzf)";
+		$nvim "$(fzf)";
 	else
-		/Applications/MacVim.app/Contents/MacOS/Vim "$@";
+		$nvim "$@";
+	fi;
+}
+
+# open vim without vimrc
+function vn() {
+	if [ $# -eq 0 ]; then
+		$nvim -u NONE "$(fzf)";
+	else
+		$nvim -u NONE "$@";
 	fi;
 }
 

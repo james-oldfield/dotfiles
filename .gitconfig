@@ -6,6 +6,12 @@
 	# View the current working tree status using the short format
 	s = status -s
 
+	# self explanatory
+	co = checkout
+	mg = merge --no-ff
+	ci = commit -m
+	br = branch
+
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 

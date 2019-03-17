@@ -1,209 +1,160 @@
+set background=dark
 set t_Co=256
 
-" COLOURS
-set background=dark
-let g:badwolf_css_props_highlight = 1
 colorscheme badwolf
-
-" Set the highlight colours for spelling mistakes
 hi SpellBad ctermfg=161
-syntax enable;
+syntax on
 
-" Set folds to auto, but auto-open
 set foldmethod=indent
 set nofoldenable
 
-set guifont=Inconsolta:h14
-
-" Make Vim more useful
 set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
+set clipboard=unnamedplus
 set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
 set backspace=indent,eol,start
-" Optimize for fast terminal connections
 set ttyfast
 set lazyredraw
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
 set encoding=utf-8 nobomb
-" Change mapleader
-let mapleader=","
-" Don’t add empty newlines at the end of files
 set binary
 set noeol
-" Centralize backups, swapfiles and undo history
+
 set backupdir=~/.vim/backups
+set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim/swaps
+
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
-" Swap setting" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+set modeline
+set modelines=4
+set exrc
+set secure
+set number
+set cursorline
+set relativenumber
 
-" Use r to replace selection with buffer
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+
+set noerrorbells
+set nostartofline
+set ruler
+set shortmess=atI
+set showmode
+set title
+set showcmd
+set scrolloff=3
+set completeopt-=preview
+
+set splitbelow
+set splitright
+
+set omnifunc=csscomplete#CompleteCSS
+set ft=scss.css
+
+let mapleader=","
+
 vmap r "_dP
-
-" Map ctrl return to normal tag expanding
-imap <C-Return> <CR><CR><C-o>ki<tab>
-imap <C-k> <CR><CR><Esc>ki<tab>
-
-" Map colon key to semi-colon
 nmap ; :
 
-" Split navigation mapping
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Map space to fold toggle
 nnoremap <space> za
 
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
-
-" Respect modeline in files
-set modeline
-set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
-" Enable line numbers
-set number
-" Enable syntax highlighting
-syntax on
-" Highlight current line
-set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
-set shiftwidth=2
-set expandtab
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
-set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
-set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
 endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
 
-" Automatic commands
 if has("autocmd")
-	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-  autocmd BufRead,BufNewFile *.md setlocal spell " Turn on spellcheck for markdownfiles
-	" Treat .md files as Markdown
+  autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+
+  autocmd Filetype markdown setlocal wrap
+  autocmd Filetype markdown setlocal linebreak
+  autocmd Filetype markdown setlocal nolist
 endif
-
-let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro' " Display line numbers in netrw
-
-" Markdown settings
-autocmd Filetype markdown setlocal wrap
-autocmd Filetype markdown setlocal linebreak
-autocmd Filetype markdown setlocal nolist
-autocmd Filetype markdown setlocal columns=80
-
-" Open new splits in bottom right
-set splitbelow
-set splitright
-
-set omnifunc=csscomplete#CompleteCSS " CSS completion
-set ft=scss.css
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0rp/ale'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
-
-Plug 'ervandew/supertab'
-Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'rdnetto/YCM-Generator', { 'for': 'cpp' }
-
+Plug 'tpope/vim-commentary'
+Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
-Plug 'James-Oldfield/badwolf'
+Plug 'w0rp/ale'
 
-augroup load_insert_plugs
-  autocmd!
-  autocmd InsertEnter * call plug#load('YouCompleteMe')
-    \| autocmd! load_insert_plugs
-augroup END
+Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'tex'] }
+Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
+
+Plug 'luochen1990/rainbow'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
+Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
+
 
 call plug#end()
 
-" Plugin settings
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|addons\|libs' " Ignores dirs when fuzzy file searching
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_working_path_mode = ''
+" System-dependent interp. paths
+let g:python_host_prog = '/home/james/miniconda3/envs/py27/bin/python'
+let g:python3_host_prog = '/home/james/miniconda3/bin/python'
 
-" JS settings
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
+
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+endif
+
+let g:vimwiki_global_ext = 0
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:badwolf_css_props_highlight = 1
+
 let g:javascript_enable_domhtmlcss=1
 
 let g:ale_sign_column_always = 1
-
 let g:ale_linters = {
-\   'scss': ['scss-lint'],
+\   'SCSS': ['scss-lint'],
+\   'javascript': ['standard'],
+\   'css': ['scss-lint'],
+\   'cpp': ['cppcheck'],
+\   'python': ['flake8'],
+\   'tex': ['chktex', 'proselint'],
 \}
+let g:ale_fixers = {'javascript': ['standard']}
 
-" Multiple cursors
-let g:multi_cursor_exit_from_insert_mode=0
+let g:jsx_ext_required = 0
 
-let g:jsx_ext_required = 0 " Allow JSX in normal JS file
-set completeopt-=preview " Hide the preview box
+let g:neotex_enabled=1
+let g:neotex_delay=0
+let g:neotex_latexdiff=0
 
-" You complete me settings
-let g:ycm_confirm_extra_conf = 0 " Turn off extra confirmations for loding c++ configs
-let g:ycm_path_to_python_interpreter = '/usr/bin/python' " Change the interpreter from Anaconda
-let g:ycm_show_diagnostics_ui = 1
-let g:ycm_enable_diagnostic_signs = 1
-
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:SuperTabCrMapping = 0
-
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:rainbow_active=0
+let g:polyglot_disabled = ['latex']

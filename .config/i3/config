@@ -1,0 +1,158 @@
+gaps inner 15
+gaps outer 15
+for_window [class="^.*"] border pixel 2
+
+set $mod Mod4
+
+font pango:Noto Sans, FontAwesome 14
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run -nb black -sb tomato
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle sticky toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+bindsym $mod+greater exec "sp next"
+bindsym $mod+less exec "sp prev"
+bindsym $mod+slash exec "sp play"
+
+# screenshots
+bindsym $mod+Print exec shutter -s
+
+# -------------------
+# WORKSPACES
+# -------------------
+set $internet 1:
+set $dev 2:
+set $music 3:
+set $mail 4:
+set $read 5:
+set $chat 6:
+set $misc 7:
+
+bindsym $mod+1 workspace $internet
+bindsym $mod+2 workspace $dev
+bindsym $mod+3 workspace $music
+bindsym $mod+4 workspace $mail
+bindsym $mod+5 workspace $read
+bindsym $mod+6 workspace $chat
+bindsym $mod+7 workspace $misc
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $internet
+bindsym $mod+Shift+2 move container to workspace $dev
+bindsym $mod+Shift+3 move container to workspace $music
+bindsym $mod+Shift+4 move container to workspace $mail
+bindsym $mod+Shift+5 move container to workspace $read
+bindsym $mod+Shift+6 move container to workspace $chat
+bindsym $mod+Shift+7 move container to workspace $misc
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# keep programs on workspaces
+assign [class="Mailspring"] $mail
+assign [class="Spotify"] $music
+
+# cycle through workspaces
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Ctrl+h workspace prev
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec i3-msg exit
+# lock screen (brb)
+bindsym $mod+Shift+b exec i3lock -c ff6347
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bar {
+  position top
+  strip_workspace_numbers yes
+  status_command SCRIPT_DIR=~/blocklets i3blocks
+  separator_symbol "|"
+
+  colors {
+    background #1a1a1a
+    statusline #ffffff
+    separator #666666
+    focused_workspace  #333333 #ffffff #1a1a1a
+  }
+}
+
+client.focused #cccccc #cccccc #cccccc #cccccc
+
+# hide title bar
+for_window [class="^.*"] border pixel 1
+
+# media keys, etc.
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+# desktop, etc.
+exec xsetroot -solid "#1a1a1a"
+
+# auto-open apps
+exec --no-startup-id redshift-gtk
+exec --no-startup-id exec /home/james/.dropbox-dist/dropboxd
+exec --no-startup-id xset r rate 225 100
+exec --no-startup-id xsettingsd
+exec --no-startup-id nm-applet

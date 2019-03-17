@@ -4,6 +4,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias r="ranger"
+
 alias dl="cd ~/Downloads"
 alias g="git"
 

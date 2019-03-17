@@ -87,16 +87,6 @@ if has("autocmd")
   autocmd Filetype markdown setlocal nolist
 endif
 
-" kudos https://tex.stackexchange.com/posts/590/revisions
-function! WC()
-  let filename = expand("%")
-  let cmd = "detex " . filename . " | wc -w | tr -d [:space:]"
-  let result = system(cmd)
-  echo result . " words"
-endfunction
-
-command WC call WC()
-
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
@@ -108,14 +98,11 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'vimwiki/vimwiki'
 Plug 'sheerun/vim-polyglot'
-Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 
 Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'tex'] }
 Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
 
-" Plug 'clojure-vim/nvim-parinfer.js', { 'for': 'clojure' }
-" Plug 'neovim/node-host', { 'for': 'clojure' }
 Plug 'luochen1990/rainbow'
 
 if has('nvim')
@@ -155,11 +142,13 @@ let g:javascript_enable_domhtmlcss=1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
 \   'SCSS': ['scss-lint'],
+\   'javascript': ['standard'],
 \   'css': ['scss-lint'],
 \   'cpp': ['cppcheck'],
 \   'python': ['flake8'],
 \   'tex': ['chktex', 'proselint'],
 \}
+let g:ale_fixers = {'javascript': ['standard']}
 
 let g:jsx_ext_required = 0
 

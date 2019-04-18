@@ -1,0 +1,50 @@
+{
+  "settingsVersion": "1.64.5",
+  "exclusionRules": [
+    {
+      "pattern": "https?://codepen.io/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.paperspace.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.overleaf.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "about:blank*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://v2.overleaf.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://calendar.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.photopea.com/*",
+      "passKeys": ""
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "",
+  "linkHintCharacters": "asdfhjkl",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 100,
+  "smoothScroll": true,
+  "grabBackFocus": false,
+  "searchEngines": "wik: http://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\nwolf: https://www.wolframalpha.com/input/?i=%s Wolfram\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\ng: http://www.google.com/search?q=%s Google\ny: http://www.youtube.com/results?search_query=%s Youtube\nm: https://www.google.com/maps?q=%s Google maps\naz: http://www.amazon.co.uk/s/?field-keywords=%s Amazon\nd: http://www.oxforddictionaries.com/definition/english/%s Dictionary\nrot: https://www.rottentomatoes.com/search/?search=%s RottenTomatoes\ngr: https://www.goodreads.com/search?q=%s GoodReads",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "input#vomnibarInput.vimiumReset {\n\tcolor: #FFF !important;\n  background-color: #111 !important;\n}\n\n#vomnibar {\n   border-color: black;\n   background-color: black;\n}\n\n#vomnibar .vomnibarSearchArea {\n   background-color: #222;\n   border-bottom: #3f3f3f;\n}\n\n#vomnibar input {\n   border-color: #393939;\n}\n\n#vomnibar ul {\n    background-color: #222;\n}\n\n#vomnibar li {\n   border-bottom: #3f3f3f;\n}\n\n#vomnibar li .vomnibarUrl {\n   color: tomato;\n}\n\n#vomnibar li .vomnibarMatch {\n   color: white;\n}\n\n#vomnibar li.vomnibarSelected {\n    background-color: #1a1a1a;\n}\n\n#vomnibar li em .vomnibarMatch, #vomnibar li .vomnibarTitle .vomnibarMatch {\n   color: white;\n}\n\n#vomnibar li em, #vomnibar li .vomnibarTitle {\n   color: #ddd;\n}\n\n.vimiumReset.internalVimiumHintMarker.vimiumHintMarker {\n    background: #1a1a1a;\n    padding: 5px;\n    border-color: tomato;\n}\nspan.vimiumReset.matchingCharacter {\n    color: tomato !important;\n}\nspan.vimiumReset {\n    text-shadow: none !important;\n    color: white !important;\n}"
+}

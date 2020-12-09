@@ -1,0 +1,27 @@
+font:
+  normal:
+    family: monospace
+    style: Regular
+
+  bold:
+    family: monospace
+    style: Bold
+
+  italic:
+    family: monospace
+    style: Italic
+
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+
+  size: 8
+
+# Colors
+colors:
+  primary:
+    background: '0x000000'
+    foreground: '0xffffff'
+
+key_bindings:
+  - { key: N,   mods: Control|Shift, action: SpawnNewInstance }

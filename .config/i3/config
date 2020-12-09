@@ -1,16 +1,16 @@
-gaps inner 15
-gaps outer 15
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 set $mod Mod4
 
-font pango:Noto Sans, FontAwesome 14
+#font pango:Fira Code, FontAwesome 14
+font pango:Inconsolata-g, FontAwesome 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -23,6 +23,8 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+bindsym $mod+m move workspace to output left
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -52,7 +54,8 @@ bindsym $mod+less exec "sp prev"
 bindsym $mod+slash exec "sp play"
 
 # screenshots
-bindsym $mod+Print exec shutter -s
+# bindsym $mod+Print exec flameshot full -p ~/Pictures/
+bindsym $mod+Print exec flameshot gui
 
 # -------------------
 # WORKSPACES
@@ -62,16 +65,16 @@ set $dev 2:
 set $music 3:
 set $mail 4:
 set $read 5:
-set $chat 6:
-set $misc 7:
+set $anki 6:
+set $chat 7:
 
 bindsym $mod+1 workspace $internet
 bindsym $mod+2 workspace $dev
 bindsym $mod+3 workspace $music
 bindsym $mod+4 workspace $mail
 bindsym $mod+5 workspace $read
-bindsym $mod+6 workspace $chat
-bindsym $mod+7 workspace $misc
+bindsym $mod+6 workspace $anki
+bindsym $mod+7 workspace $chat
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
@@ -82,8 +85,8 @@ bindsym $mod+Shift+2 move container to workspace $dev
 bindsym $mod+Shift+3 move container to workspace $music
 bindsym $mod+Shift+4 move container to workspace $mail
 bindsym $mod+Shift+5 move container to workspace $read
-bindsym $mod+Shift+6 move container to workspace $chat
-bindsym $mod+Shift+7 move container to workspace $misc
+bindsym $mod+Shift+6 move container to workspace $anki
+bindsym $mod+Shift+7 move container to workspace $chat
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
@@ -92,18 +95,17 @@ bindsym $mod+Shift+0 move container to workspace 10
 assign [class="Mailspring"] $mail
 assign [class="Spotify"] $music
 
-# cycle through workspaces
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec i3-msg exit
 # lock screen (brb)
-bindsym $mod+Shift+b exec i3lock -c ff6347
+# bindsym $mod+Shift+b exec i3lock -c 1a1a1a
+bindsym $mod+Shift+b exec i3lock
+
+# cycle through workspaces
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Ctrl+h workspace prev
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -122,24 +124,21 @@ bar {
   position top
   strip_workspace_numbers yes
   status_command SCRIPT_DIR=~/blocklets i3blocks
-  separator_symbol "|"
 
   colors {
-    background #1a1a1a
-    statusline #ffffff
-    separator #666666
-    focused_workspace  #333333 #ffffff #1a1a1a
+    background #050401
+    statusline #f8f6f2
+    separator #1a1a1a
+    focused_workspace #1a1a1a #ff6347 #f8f6f2
   }
 }
 
-client.focused #cccccc #cccccc #cccccc #cccccc
-
-# hide title bar
-for_window [class="^.*"] border pixel 1
+#client.focused #cccccc #cccccc #cccccc #cccccc
+client.focused #ff6347 #ff6347 #ffffff #ff6347
 
 # media keys, etc.
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pulseaudio-ctl up && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pulseaudio-ctl up && pkill -RTMIN+10 i3blocks 
 bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pulseaudio-ctl down && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute && pkill -RTMIN+10 i3blocks
 
@@ -151,7 +150,7 @@ bindsym XF86MonBrightnessDown exec light -U 5
 exec xsetroot -solid "#1a1a1a"
 
 # auto-open apps
-exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk -l 51.5074:0.1278
 exec --no-startup-id exec /home/james/.dropbox-dist/dropboxd
 exec --no-startup-id xset r rate 225 100
 exec --no-startup-id xsettingsd

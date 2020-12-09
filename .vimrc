@@ -3,10 +3,12 @@ set t_Co=256
 
 colorscheme badwolf
 hi SpellBad ctermfg=161
-syntax on
+
+set omnifunc=syntaxcomplete#Complete
 
 set foldmethod=indent
 set nofoldenable
+
 
 set nocompatible
 set clipboard=unnamedplus
@@ -14,7 +16,7 @@ set wildmenu
 set backspace=indent,eol,start
 set ttyfast
 set lazyredraw
-set encoding=utf-8 nobomb
+set encoding=utf8
 set binary
 set noeol
 
@@ -28,6 +30,7 @@ endif
 
 set modeline
 set modelines=4
+set linebreak
 set exrc
 set secure
 set number
@@ -58,10 +61,10 @@ set completeopt-=preview
 set splitbelow
 set splitright
 
-set omnifunc=csscomplete#CompleteCSS
-set ft=scss.css
+"let mapleader="\"
+let maplocalleader="\\"
 
-let mapleader=","
+let g:tex_flavor="latex"
 
 vmap r "_dP
 nmap ; :
@@ -72,19 +75,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 nnoremap <space> za
+nnoremap <C-space> zA
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
-endif
-
-if has("autocmd")
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-  autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-
-  autocmd Filetype markdown setlocal wrap
-  autocmd Filetype markdown setlocal linebreak
-  autocmd Filetype markdown setlocal nolist
 endif
 
 " PLUGINS
@@ -94,50 +88,31 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'airblade/vim-gitgutter'
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-commentary'
-Plug 'vimwiki/vimwiki'
-Plug 'sheerun/vim-polyglot'
+Plug 'vimwiki/vimwiki', { 'for': ['markdown'] }
 Plug 'w0rp/ale'
 
 Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'tex'] }
-Plug 'euclio/vim-markdown-composer', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-Plug 'luochen1990/rainbow'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
-
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
-Plug 'zchee/deoplete-clang', { 'for': 'cpp' }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-
-Plug 'donRaphaco/neotex', { 'for': 'tex' }
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'poppyschmo/deoplete-latex', { 'for': 'tex' }
+Plug 'lervag/vimtex'
+Plug 'sheerun/vim-polyglot'
+"
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 call plug#end()
+
 
 " System-dependent interp. paths
 let g:python_host_prog = '/home/james/miniconda3/envs/py27/bin/python'
 let g:python3_host_prog = '/home/james/miniconda3/bin/python'
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.9.1/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
-
 let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 
-let g:badwolf_css_props_highlight = 1
-
-let g:javascript_enable_domhtmlcss=1
+let g:mkdp_auto_start = 1
 
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
@@ -146,15 +121,22 @@ let g:ale_linters = {
 \   'css': ['scss-lint'],
 \   'cpp': ['cppcheck'],
 \   'python': ['flake8'],
-\   'tex': ['chktex', 'proselint'],
+\   'tex': ['lacheck'],
 \}
 let g:ale_fixers = {'javascript': ['standard']}
 
-let g:jsx_ext_required = 0
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_enabled = 0
 
-let g:neotex_enabled=1
-let g:neotex_delay=0
-let g:neotex_latexdiff=0
+if has("autocmd")
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  autocmd BufRead,BufNewFile *.md,*.tex setlocal spell
 
-let g:rainbow_active=0
-let g:polyglot_disabled = ['latex']
+  autocmd Filetype markdown setlocal wrap
+  autocmd Filetype markdown setlocal linebreak
+  autocmd Filetype markdown setlocal nolist
+endif
+
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif

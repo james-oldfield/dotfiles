@@ -1,0 +1,68 @@
+command=/usr/share/i3blocks/$BLOCK_NAME
+
+full_text=|
+align=center
+color=#808080
+separator=false
+separator_block_width=5
+
+[spotify]
+command=$SCRIPT_DIR/spotify/spotify
+interval=1
+color=#ffffff
+
+[separator]
+
+[cpu_usage]
+command=$SCRIPT_DIR/cpu_usage/cpu_usage
+color=#ffffff
+interval=10
+label= CPU:
+
+[separator]
+
+[space]
+command=df -h / | awk 'FNR==2{print $4}'
+color=#ffffff
+interval=3
+label=
+
+[separator]
+
+# Battery indicator
+[battery2]
+command=$SCRIPT_DIR/battery2/battery2
+color=#ffffff
+markup=pango
+interval=30
+
+[separator]
+
+# Volume indicator
+[volume]
+label=
+instance=Master
+interval=once
+signal=10
+color=#ffffff
+
+[separator]
+
+
+# Date Time
+[time]
+command=date '+%a %d %b'
+color=#ffffff
+label=
+interval=5
+
+[separator]
+
+# Date Time
+[time]
+command=date '+%H:%M'
+color=#ffffff
+label=
+interval=5
+
+[separator]

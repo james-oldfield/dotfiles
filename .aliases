@@ -36,7 +36,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 
 
 # Reload the shell (i.e. invoke as a login shell)
-alias rl="exec $SHELL -l"
+alias rl="source ~/.bashrc"
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'

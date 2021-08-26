@@ -1,21 +1,29 @@
-# vim
-nvim=/home/james/AppImages/nvim.appimage
+# stuff to set sane settings for devices
+function keyb() {
+  echo "natural scroll... "; xinput --set-prop 12 315 1;
+  echo "natural scroll mouse... "; xinput --set-prop 'pointer:MOSART Semi. 2.4G Keyboard Mouse' 'libinput Natural Scrolling Enabled' 1;
+  echo "natural scroll mouse... "; xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 1;
+  echo "key repeat ... "; xset r rate 225 100;
+  echo "caps -> escape ... "; setxkbmap -option caps:swapescape;
+  echo "nat scroll ";
+  xinput --set-prop 'pointer:Lenovo ThinkPad Compact USB Keyboard with TrackPoint' 'libinput Natural Scrolling Enabled' 1;
+  xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Natural Scrolling Enabled' 1
+  echo "keyboard uk ... ";
+	setxkbmap us;
+  echo "... done"; 
+}
 
 # open vimwiki
 function vw() {
-	v ~/Dropbox/vimwiki/Index.md;
+	vim ~/Dropbox/vimwiki/index.md;
+}
+function todo() {
+  vim ~/Dropbox/vimwiki/todo.md
 }
 
 # open latex scratchpad
 function vl() {
 	v ~/Dropbox/vimwiki/latex.md;
-}
-
-# start datascience virtual env
-function ds() {
-	eval "$(pyenv virtualenv-init -)"
-	eval "$(pyenv init -)"
-	pyenv activate data-science
 }
 
 function mkd() {
@@ -48,28 +56,18 @@ fi;
 # given location
 function v() {
 	if [ $# -eq 0 ]; then
-		$nvim "$(fzf)";
+		vim "$(fzf)";
 	else
-		$nvim "$@";
+		vim "$@";
 	fi;
 }
 
 # open vim without vimrc
 function vn() {
 	if [ $# -eq 0 ]; then
-		$nvim -u NONE "$(fzf)";
+		$vim -u NONE "$(fzf)";
 	else
-		$nvim -u NONE "$@";
-	fi;
-}
-
-# `o` with no arguments opens the current directory, otherwise opens the given
-# location
-function o() {
-	if [ $# -eq 0 ]; then
-		open .;
-	else
-		open "$@";
+		$vim -u NONE "$@";
 	fi;
 }
 

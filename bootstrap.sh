@@ -3,7 +3,7 @@
 cd "$(dirname "${BASH_SOURCE}")";
 
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -avh --no-perms . ~;
+	rsync -a --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -avh --no-perms ./ --progress ~;
 	source ~/.bash_profile;
 	git config --global user.name "james-oldfield"
 	git config --global user.email "jamesalexanderoldfield@gmail.com"

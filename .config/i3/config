@@ -26,8 +26,8 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 bindsym $mod+o move workspace to output HDMI-1
-bindsym $mod+y move workspace to output DP-2   # move to vert monitor (left)
-bindsym $mod+i move workspace to output DP-2   # move to vert monitor (up)
+bindsym $mod+y move workspace to output DP-2
+bindsym $mod+i move workspace to output DP-2
 bindsym $mod+u move workspace to output eDP-1
 
 # move focused window

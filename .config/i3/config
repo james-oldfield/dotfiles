@@ -157,8 +157,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pulseaudio-ctl down &
 bindsym XF86AudioMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute && pkill -RTMIN+10 i3blocks
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+# media keys, etc.
+bindsym $mod+greater exec "playerctl next"
+bindsym $mod+less exec "playerctl prev"
+bindsym $mod+slash exec "playerctl play-pause"
 
 # desktop, etc.
 exec xsetroot -solid "#1a1a1a"

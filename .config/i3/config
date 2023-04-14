@@ -164,7 +164,7 @@ bindsym XF86MonBrightnessDown exec light -U 5
 exec xsetroot -solid "#1a1a1a"
 
 # auto-open apps
-exec --no-startup-id redshift-gtk -l 51.5074:0.1278
+exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 exec --no-startup-id exec /home/james/.dropbox-dist/dropboxd
 exec --no-startup-id xset r rate 225 100
 exec --no-startup-id xsettingsd

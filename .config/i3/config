@@ -168,6 +168,10 @@ bindsym $mod+greater exec "playerctl next"
 bindsym $mod+less exec "playerctl prev"
 bindsym $mod+slash exec "playerctl play-pause"
 
+bindsym $mod+greater exec "playerctl --player=spotify next"
+bindsym $mod+less exec "playerctl --player=spotify prev"
+bindsym $mod+slash exec "playerctl --player=spotify play-pause"
+
 # desktop, etc.
 exec xsetroot -solid "#1a1a1a"
 
